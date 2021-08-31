@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  AdhocMongoDB:
+    image: mongo:latest
+    container_name: "AdhocMongoDB"
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+
+  inps-adhoc.jar:
+    image: inps-adhoc.jar
+    container_name: inps-adhoc.jar
+    ports:
+      - 8096:8096
+    links:
+      - AdhocMongoDB
